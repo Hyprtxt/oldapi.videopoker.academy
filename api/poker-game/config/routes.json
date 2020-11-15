@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/poker-games",
+      "handler": "poker-game.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/poker-games/count",
+      "handler": "poker-game.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/poker-games/:id",
+      "handler": "poker-game.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/poker-games",
+      "handler": "poker-game.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/poker-games/:id",
+      "handler": "poker-game.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/poker-games/:id",
+      "handler": "poker-game.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

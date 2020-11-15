@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "poker_games",
+  "info": {
+    "name": "Poker Game"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "User": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "Data": {
+      "type": "json"
+    }
+  }
+}
