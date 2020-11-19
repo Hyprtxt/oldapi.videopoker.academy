@@ -23,7 +23,7 @@
       "required": false,
       "private": true
     },
-    "Draw": {
+    "Done": {
       "type": "boolean",
       "default": false,
       "required": true
@@ -31,6 +31,12 @@
     "Holds": {
       "type": "json",
       "required": false
+    },
+    "Draw": {
+      "type": "json"
+    },
+    "Final": {
+      "type": "json"
     }
   }
 }

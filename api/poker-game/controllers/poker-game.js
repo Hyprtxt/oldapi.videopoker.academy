@@ -21,13 +21,25 @@ module.exports = {
     const { id } = ctx.params;
     let entity;
     let game = await strapi.services["poker-game"].findOne({ id });
-    if (game.Draw) {
+    if (game.Done) {
       throw strapi.errors.badRequest(`Cheater!`);
     }
     console.log("DRAW", ctx.request.body, game);
+    console.log("A THING", ctx.request.body.Holds.filter(Boolean).length);
+    let sliceCount = 0;
+    if (ctx.request.body.Holds !== undefined) {
+      sliceCount = ctx.request.body.Holds.filter(Boolean).length;
+    }
     entity = await strapi.services["poker-game"].update(
       { id },
-      ctx.request.body
+      // ctx.request.body
+      Object.assign(
+        {
+          Holds: [false, false, false, false, false],
+          Draw: game.Deck.slice(5, 7),
+        },
+        ctx.request.body
+      )
     );
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
