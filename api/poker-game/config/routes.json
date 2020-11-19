@@ -33,14 +33,6 @@
       }
     },
     {
-      "method": "POST",
-      "path": "/poker-games",
-      "handler": "poker-game.new",
-      "config": {
-        "policies": []
-      }
-    },
-    {
       "method": "PUT",
       "path": "/poker-games/:id",
       "handler": "poker-game.update",
@@ -52,6 +44,22 @@
       "method": "DELETE",
       "path": "/poker-games/:id",
       "handler": "poker-game.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/my-poker-games",
+      "handler": "poker-game.myGames",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/poker-games",
+      "handler": "poker-game.new",
       "config": {
         "policies": []
       }
