@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/my-poker-games",
+      "handler": "poker-game.myGames",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
