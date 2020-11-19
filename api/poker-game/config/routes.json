@@ -58,7 +58,7 @@
     },
     {
       "method": "POST",
-      "path": "/poker-games",
+      "path": "/new-poker-game",
       "handler": "poker-game.new",
       "config": {
         "policies": []

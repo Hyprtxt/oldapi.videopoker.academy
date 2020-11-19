@@ -1,5 +1,6 @@
 "use strict";
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const { getNewCards } = require("../deck");
 /**
  * A set of functions called "actions" for `poker-game`
  */
@@ -11,16 +12,17 @@ module.exports = {
    * @return {Object}
    */
 
-  new: async (ctx) => {
-    console.log(ctx, "MAKIN A GAME");
+  new: async (ctx, next) => {
+    console.log(ctx.request.body, "MAKIN A GAME");
+    ctx.request.body.Deck = getNewCards();
     let entity;
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services.restaurant.create(data, { files });
+      entity = await strapi.services["poker-game"].create(data, { files });
     } else {
-      entity = await strapi.services.restaurant.create(ctx.request.body);
+      entity = await strapi.services["poker-game"].create(ctx.request.body);
     }
-    return sanitizeEntity(entity, { model: strapi.models.restaurant });
+    return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
 
   myGames: async (ctx, next) => {
