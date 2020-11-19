@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/poker-games",
+      "handler": "poker-game.new",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/poker-games/:id",
       "handler": "poker-game.update",
