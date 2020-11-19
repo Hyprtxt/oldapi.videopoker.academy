@@ -13,4 +13,10 @@ curl --location --request POST 'http://localhost:1337/new-poker-game' \
         "id": 2
     }
 }'
+
+curl --location --request PUT 'http://localhost:1337/draw/89' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "Holds": [null,null,false,false,false]
+}'
 ```
