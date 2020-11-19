@@ -26,7 +26,7 @@
     },
     {
       "method": "POST",
-      "path": "/poker-games",
+      "path": "/play",
       "handler": "poker-game.create",
       "config": {
         "policies": []
@@ -34,7 +34,7 @@
     },
     {
       "method": "PUT",
-      "path": "/poker-games/:id",
+      "path": "/draw/:id",
       "handler": "poker-game.update",
       "config": {
         "policies": []

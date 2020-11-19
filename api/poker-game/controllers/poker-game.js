@@ -6,15 +6,12 @@ const { getNewCards } = require("../deck");
  */
 
 module.exports = {
-  /**
-   * Create a record.
-   *
-   * @return {Object}
-   */
-
   new: async (ctx, next) => {
     console.log(ctx.request.body, "MAKIN A GAME");
-    ctx.request.body.Deck = getNewCards();
+    if (ctx.request.body.User === undefined) {
+      ctx.request.body.User = { id: 1 };
+    }
+    // ctx.request.body.Deck = getNewCards();
     let entity;
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
@@ -22,9 +19,28 @@ module.exports = {
     } else {
       entity = await strapi.services["poker-game"].create(ctx.request.body);
     }
+    let payload = strapi.models["poker-game"];
+    // console.log(payload);
+    // payload.Hand = payload.Deck.slice(0, 5);
+    return sanitizeEntity(entity, { model: payload });
+  },
+  draw: async (ctx) => {
+    const { id } = ctx.params;
+    let entity;
+    if (ctx.is("multipart")) {
+      const { data, files } = parseMultipartData(ctx);
+      entity = await strapi.services["poker-game"].update({ id }, data, {
+        draw: true,
+        files,
+      });
+    } else {
+      entity = await strapi.services["poker-game"].update(
+        { id },
+        ctx.request.body
+      );
+    }
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
-
   myGames: async (ctx, next) => {
     console.log("myGames", ctx, ctx.state);
     try {

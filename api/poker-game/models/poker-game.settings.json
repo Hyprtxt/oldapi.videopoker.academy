@@ -15,11 +15,18 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "Data": {
+    "Hand": {
       "type": "json"
     },
     "Deck": {
-      "type": "json"
+      "type": "json",
+      "required": false,
+      "private": true
+    },
+    "Draw": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }
