@@ -8,8 +8,9 @@ const { getNewCards } = require("../deck");
 module.exports = {
   lifecycles: {
     beforeCreate: (data) => {
-      console.log("beforeCreate", data);
+      console.log("beforeCreate");
       const cards = getNewCards();
+      data.User = data.User || { id: 1 };
       data.Deck = cards;
       data.Hand = cards.slice(0, 5);
       data.Holds = [null, null, null, null, null];

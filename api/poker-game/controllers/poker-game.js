@@ -9,34 +9,45 @@ module.exports = {
   play: async (ctx) => {
     let entity;
     console.log("IS_PLAY");
-    if (ctx.is("multipart")) {
-      const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services["poker-game"].create(data, { files });
-    } else {
-      entity = await strapi.services["poker-game"].create(ctx.request.body);
-    }
+    entity = await strapi.services["poker-game"].create(ctx.request.body);
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
   draw: async (ctx) => {
+    const HAND_COUNT = 5;
     const { id } = ctx.params;
     let entity;
     let game = await strapi.services["poker-game"].findOne({ id });
     if (game.Done) {
       throw strapi.errors.badRequest(`Cheater!`);
     }
-    console.log("DRAW", ctx.request.body, game);
-    console.log("A THING", ctx.request.body.Holds.filter(Boolean).length);
+    // console.log(game);
+    // console.log("A THING", ctx.request.body.Holds.filter(Boolean).length);
     let sliceCount = 0;
     if (ctx.request.body.Holds !== undefined) {
-      sliceCount = ctx.request.body.Holds.filter(Boolean).length;
+      sliceCount = Math.abs(
+        ctx.request.body.Holds.filter(Boolean).length - HAND_COUNT
+      );
     }
+    console.log("DRAW", sliceCount);
+    let count = 0;
+    let card = "";
+    const drawCards = game.Deck.slice(HAND_COUNT, sliceCount + HAND_COUNT);
+    const finalCards = ctx.request.body.Holds.map((hold, index) => {
+      if (hold) {
+        return game.Hand[index];
+      } else {
+        card = drawCards[count];
+        count++;
+        return card;
+      }
+    });
+    console.log("DONE", finalCards);
     entity = await strapi.services["poker-game"].update(
       { id },
-      // ctx.request.body
       Object.assign(
         {
-          Holds: [false, false, false, false, false],
-          Draw: game.Deck.slice(5, 7),
+          Draw: drawCards,
+          FinalCards: finalCards,
         },
         ctx.request.body
       )
