@@ -58,6 +58,12 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "Credits": {
+      "type": "integer",
+      "required": true,
+      "default": 100,
+      "min": 0
     }
   }
 }

@@ -17,10 +17,6 @@ module.exports = {
     },
     beforeUpdate: (params, data) => {
       data.Done = true;
-      // No More null Allowed
-      // if (data.Holds !== undefined && data.Holds.isArray()) {
-      //   data.Holds = data.Holds.map((value) => (value === null ? false : true));
-      // }
     },
   },
 };

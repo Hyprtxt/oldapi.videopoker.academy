@@ -37,6 +37,9 @@
     },
     "FinalCards": {
       "type": "json"
+    },
+    "Result": {
+      "type": "json"
     }
   }
 }

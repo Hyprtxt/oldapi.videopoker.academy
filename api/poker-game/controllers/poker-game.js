@@ -1,5 +1,6 @@
 "use strict";
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
+const Poker = require("../poker");
 
 /**
  * A set of functions called "actions" for `poker-game`
@@ -15,20 +16,17 @@ module.exports = {
   draw: async (ctx) => {
     const HAND_COUNT = 5;
     const { id } = ctx.params;
-    let entity;
     let game = await strapi.services["poker-game"].findOne({ id });
     if (game.Done) {
       throw strapi.errors.badRequest(`Cheater!`);
     }
-    // console.log(game);
-    // console.log("A THING", ctx.request.body.Holds.filter(Boolean).length);
     let sliceCount = 0;
     if (ctx.request.body.Holds !== undefined) {
       sliceCount = Math.abs(
         ctx.request.body.Holds.filter(Boolean).length - HAND_COUNT
       );
     }
-    console.log("DRAW", sliceCount);
+    // console.log("DRAW", sliceCount);
     let count = 0;
     let card = "";
     const drawCards = game.Deck.slice(HAND_COUNT, sliceCount + HAND_COUNT);
@@ -41,13 +39,15 @@ module.exports = {
         return card;
       }
     });
-    console.log("DONE", finalCards);
+    console.log("DONE", finalCards, Poker.Score(finalCards));
+    let entity;
     entity = await strapi.services["poker-game"].update(
       { id },
       Object.assign(
         {
           Draw: drawCards,
           FinalCards: finalCards,
+          Result: Poker.Score(finalCards),
         },
         ctx.request.body
       )
