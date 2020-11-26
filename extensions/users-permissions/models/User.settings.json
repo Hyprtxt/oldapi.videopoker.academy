@@ -64,6 +64,10 @@
       "required": true,
       "default": 100,
       "min": 0
+    },
+    "Handle": {
+      "type": "string",
+      "unique": true
     }
   }
 }
