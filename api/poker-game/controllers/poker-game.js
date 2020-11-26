@@ -9,8 +9,27 @@ const Poker = require("../poker");
 module.exports = {
   play: async (ctx) => {
     let entity;
-    console.log("IS_PLAY");
+    // console.log(
+    //   "IS_PLAY",
+    //   ctx.request.body
+    //   // strapi.plugins["users-permissions"].services
+    // );
+    if (ctx.request.body.User !== 1) {
+      const User = await strapi.plugins[
+        "users-permissions"
+      ].services.user.fetch({
+        id: ctx.request.body.User,
+      });
+      // console.log("USER", User);
+      await strapi.plugins["users-permissions"].services.user.edit(
+        {
+          id: ctx.request.body.User,
+        },
+        { Credits: User.Credits - 5 }
+      );
+    }
     entity = await strapi.services["poker-game"].create(ctx.request.body);
+    // await strapi.services['users-permissions.user'].update({ id }, ctx.request.body)
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
   draw: async (ctx) => {
@@ -39,7 +58,16 @@ module.exports = {
         return card;
       }
     });
-    console.log("DONE", finalCards, Poker.Score(finalCards));
+    const theResult = Poker.Score(finalCards);
+    console.log("DONE", finalCards, theResult, game);
+    if (theResult.win !== 0) {
+      await strapi.plugins["users-permissions"].services.user.edit(
+        {
+          id: game.User.id,
+        },
+        { Credits: game.User.Credits + theResult.win }
+      );
+    }
     let entity;
     entity = await strapi.services["poker-game"].update(
       { id },
@@ -47,7 +75,7 @@ module.exports = {
         {
           Draw: drawCards,
           FinalCards: finalCards,
-          Result: Poker.Score(finalCards),
+          Result: theResult,
         },
         ctx.request.body
       )
