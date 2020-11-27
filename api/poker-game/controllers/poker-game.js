@@ -7,27 +7,98 @@ const Poker = require("../poker");
  */
 
 module.exports = {
+  myGames: async (ctx, next) => {
+    console.log("myGames", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: true,
+      });
+      return entities.map((entity) => {
+        return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
+      });
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+  myUnfinished: async (ctx, next) => {
+    console.log("myUnfinished", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: false,
+      });
+      return entities.map((entity) => {
+        return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
+      });
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+  myWin: async (ctx, next) => {
+    console.log("myWin", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: true,
+      });
+      return entities.reduce((accumulator, entity) => {
+        console.log(accumulator, entity.Result.win);
+        return accumulator + parseInt(entity.Result.win);
+      }, 0);
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+  mySpent: async (ctx, next) => {
+    console.log("mySpent", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: true,
+      });
+      return entities.length * 5;
+      // .map((entity) => {
+      //   return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
+      // });
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
+  myWasted: async (ctx, next) => {
+    console.log("myWasted", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: false,
+      });
+      return entities.length * 5;
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
   play: async (ctx) => {
     let entity;
-    // console.log(
-    //   "IS_PLAY",
-    //   ctx.request.body
-    //   // strapi.plugins["users-permissions"].services
-    // );
-    if (ctx.request.body.User !== 1) {
-      const User = await strapi.plugins[
-        "users-permissions"
-      ].services.user.fetch({
-        id: ctx.request.body.User,
-      });
-      // console.log("USER", User);
-      await strapi.plugins["users-permissions"].services.user.edit(
-        {
-          id: ctx.request.body.User,
-        },
-        { Credits: User.Credits - 5 }
-      );
-    }
+    console.log(
+      "IS_PLAY",
+      ctx.request.body
+      // strapi.plugins["users-permissions"].services
+    );
+    const User = await strapi.plugins["users-permissions"].services.user.fetch({
+      id: ctx.state.user.id,
+    });
+    // console.log("USER", User);
+    await strapi.plugins["users-permissions"].services.user.edit(
+      {
+        id: ctx.state.user.id,
+      },
+      { Credits: User.Credits - 5 }
+    );
     entity = await strapi.services["poker-game"].create(ctx.request.body);
     // await strapi.services['users-permissions.user'].update({ id }, ctx.request.body)
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
@@ -118,19 +189,4 @@ module.exports = {
   //   }
   //   return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   // },
-  myGames: async (ctx, next) => {
-    console.log("myGames", ctx, ctx.state);
-    try {
-      // ctx.body = 'ok';
-      let entities = await strapi.services["poker-game"].find(ctx.query);
-      return entities.map((entity) => {
-        // console.log( entity )
-        if (entity.User.id === ctx.state.user.id) {
-          return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
-        }
-      });
-    } catch (err) {
-      ctx.body = err;
-    }
-  },
 };

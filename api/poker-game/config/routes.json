@@ -50,8 +50,40 @@
     },
     {
       "method": "GET",
-      "path": "/my-poker-games",
+      "path": "/me",
       "handler": "poker-game.myGames",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unfinished",
+      "handler": "poker-game.myUnfinished",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/win",
+      "handler": "poker-game.myWin",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/spent",
+      "handler": "poker-game.mySpent",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/wasted",
+      "handler": "poker-game.myWasted",
       "config": {
         "policies": []
       }
