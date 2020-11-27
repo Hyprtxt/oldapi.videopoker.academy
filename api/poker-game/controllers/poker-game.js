@@ -22,6 +22,24 @@ module.exports = {
       ctx.body = err;
     }
   },
+  myNet: async (ctx, next) => {
+    console.log("myNet", ctx.state.user.id);
+    try {
+      // ctx.body = 'ok';
+      let entities = await strapi.services["poker-game"].find({
+        User: ctx.state.user.id,
+        Done: true,
+      });
+      const spent = entities.length * 5;
+      const win = entities.reduce((accumulator, entity) => {
+        console.log(accumulator, entity.Result.win);
+        return accumulator + parseInt(entity.Result.win);
+      }, 0);
+      return win - spent;
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
   myUnfinished: async (ctx, next) => {
     console.log("myUnfinished", ctx.state.user.id);
     try {
@@ -84,23 +102,24 @@ module.exports = {
   },
   play: async (ctx) => {
     let entity;
-    console.log(
-      "IS_PLAY",
-      ctx.request.body
-      // strapi.plugins["users-permissions"].services
-    );
-    const User = await strapi.plugins["users-permissions"].services.user.fetch({
+    // console.log(
+    //   "IS_PLAY"
+    //   // ctx.request.body
+    //   // strapi.plugins["users-permissions"].services
+    // );
+    const userQuery = {
       id: ctx.state.user.id,
-    });
-    // console.log("USER", User);
-    await strapi.plugins["users-permissions"].services.user.edit(
-      {
-        id: ctx.state.user.id,
-      },
-      { Credits: User.Credits - 5 }
+    };
+    const User = await strapi.plugins["users-permissions"].services.user.fetch(
+      userQuery
     );
-    entity = await strapi.services["poker-game"].create(ctx.request.body);
-    // await strapi.services['users-permissions.user'].update({ id }, ctx.request.body)
+    // console.log("USER", User);
+    await strapi.plugins["users-permissions"].services.user.edit(userQuery, {
+      Credits: User.Credits - 5,
+    });
+    entity = await strapi.services["poker-game"].create({
+      User: userQuery,
+    });
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
   draw: async (ctx) => {
@@ -116,7 +135,7 @@ module.exports = {
         ctx.request.body.Holds.filter(Boolean).length - HAND_COUNT
       );
     }
-    // console.log("DRAW", sliceCount);
+    console.log("DRAW", sliceCount, game);
     let count = 0;
     let card = "";
     const drawCards = game.Deck.slice(HAND_COUNT, sliceCount + HAND_COUNT);
@@ -142,14 +161,12 @@ module.exports = {
     let entity;
     entity = await strapi.services["poker-game"].update(
       { id },
-      Object.assign(
-        {
-          Draw: drawCards,
-          FinalCards: finalCards,
-          Result: theResult,
-        },
-        ctx.request.body
-      )
+      {
+        Draw: drawCards,
+        FinalCards: finalCards,
+        Result: theResult,
+        Holds: ctx.request.body.Holds,
+      }
     );
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },

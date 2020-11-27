@@ -25,7 +25,7 @@
       }
     },
     {
-      "method": "POST",
+      "method": "GET",
       "path": "/play",
       "handler": "poker-game.play",
       "config": {
@@ -84,6 +84,14 @@
       "method": "GET",
       "path": "/wasted",
       "handler": "poker-game.myWasted",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/net",
+      "handler": "poker-game.myNet",
       "config": {
         "policies": []
       }
