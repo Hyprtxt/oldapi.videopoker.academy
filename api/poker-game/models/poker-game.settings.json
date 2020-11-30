@@ -40,6 +40,23 @@
     },
     "Result": {
       "type": "json"
+    },
+    "Hash": {
+      "type": "uid",
+      "required": false
+    },
+    "Strategy": {
+      "type": "json"
+    },
+    "Mode": {
+      "type": "enumeration",
+      "enum": [
+        "classic",
+        "casual",
+        "trainer"
+      ],
+      "required": true,
+      "default": "classic"
     }
   }
 }

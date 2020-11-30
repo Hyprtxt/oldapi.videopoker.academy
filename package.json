@@ -11,6 +11,9 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "knex": "<0.20.0",
+    "object-hash": "^2.0.3",
+    "sqlite3": "latest",
     "strapi": "3.2.5",
     "strapi-admin": "3.2.5",
     "strapi-connector-bookshelf": "3.2.5",
@@ -20,9 +23,7 @@
     "strapi-plugin-graphql": "3.2.5",
     "strapi-plugin-upload": "3.2.5",
     "strapi-plugin-users-permissions": "3.2.5",
-    "strapi-utils": "3.2.5",
-    "knex": "<0.20.0",
-    "sqlite3": "latest"
+    "strapi-utils": "3.2.5"
   },
   "author": {
     "name": "A Strapi developer"

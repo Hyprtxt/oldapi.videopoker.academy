@@ -1,6 +1,7 @@
 "use strict";
 const { parseMultipartData, sanitizeEntity } = require("strapi-utils");
 const Poker = require("../poker");
+const Strategy = require("../simple-strategy");
 
 /**
  * A set of functions called "actions" for `poker-game`
@@ -101,12 +102,20 @@ module.exports = {
     }
   },
   play: async (ctx) => {
+    const { mode } = ctx.params;
+    const validModes = ["classic", "casual", "trainer"];
+    if (validModes.indexOf(mode) === -1) {
+      throw strapi.errors.badRequest(
+        `Pick a mode, ${JSON.stringify(validModes, null, 2)}`
+      );
+    }
     let entity;
-    // console.log(
-    //   "IS_PLAY"
-    //   // ctx.request.body
-    //   // strapi.plugins["users-permissions"].services
-    // );
+    console.log(
+      "IS_PLAY",
+      ctx.state.user.Credits,
+      ctx.request.body
+      //   // strapi.plugins["users-permissions"].services
+    );
     const userQuery = {
       id: ctx.state.user.id,
     };
@@ -119,6 +128,7 @@ module.exports = {
     });
     entity = await strapi.services["poker-game"].create({
       User: userQuery,
+      Mode: mode,
     });
     return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
   },
@@ -129,13 +139,14 @@ module.exports = {
     if (game.Done) {
       throw strapi.errors.badRequest(`Cheater!`);
     }
+    const theStrategy = Strategy.simpleStrategy(game.Hand);
     let sliceCount = 0;
     if (ctx.request.body.Holds !== undefined) {
       sliceCount = Math.abs(
         ctx.request.body.Holds.filter(Boolean).length - HAND_COUNT
       );
     }
-    console.log("DRAW", sliceCount, game);
+    // console.log("DRAW", sliceCount, game);
     let count = 0;
     let card = "";
     const drawCards = game.Deck.slice(HAND_COUNT, sliceCount + HAND_COUNT);
@@ -149,7 +160,7 @@ module.exports = {
       }
     });
     const theResult = Poker.Score(finalCards);
-    console.log("DONE", finalCards, theResult, game);
+    // console.log("DONE", finalCards, theResult, game);
     if (theResult.win !== 0) {
       await strapi.plugins["users-permissions"].services.user.edit(
         {
@@ -165,6 +176,7 @@ module.exports = {
         Draw: drawCards,
         FinalCards: finalCards,
         Result: theResult,
+        Strategy: theStrategy,
         Holds: ctx.request.body.Holds,
       }
     );
