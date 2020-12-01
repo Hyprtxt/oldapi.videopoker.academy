@@ -28,9 +28,10 @@ const {
 const rule = (rule_number, INPUT_HAND) => {
   const getHoldEvents = {
     cards: (cardsArray) =>
-      cardsArray.map(
-        (hold_card) => `HOLD_${INPUT_HAND.indexOf(hold_card) + 1}`
-      ),
+      cardsArray
+        .map((hold_card) => `HOLD_${INPUT_HAND.indexOf(hold_card) + 1}`)
+        // fixes it?, but which rule is outputting results out of order...
+        .sort((a, b) => b - a),
     suit: (holdSuit) =>
       INPUT_HAND.map((card, index) =>
         cardSuit(card) === holdSuit ? `HOLD_${index + 1}` : ""

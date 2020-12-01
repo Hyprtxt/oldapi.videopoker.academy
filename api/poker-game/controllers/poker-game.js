@@ -8,6 +8,45 @@ const Strategy = require("../simple-strategy");
  */
 
 module.exports = {
+  publicGetProviders: async (ctx) => {
+    const providers = await strapi
+      .store({
+        environment: "",
+        type: "plugin",
+        name: "users-permissions",
+        key: "grant",
+      })
+      .get();
+    const providersList = Object.keys(providers)
+      .map((key) => (providers[key].enabled ? key : null))
+      .filter((x) => x);
+    ctx.send(providersList);
+  },
+  // publicGetProviders: async (ctx, next) => {
+  //   console.log(
+  //     "publicGetProviders",
+  //     strapi.plugins["users-permissions"].services
+  //   );
+  //   try {
+  //     // const providers = await strapi.plugins["users-permissions"].services.user.edit(
+  //     //   {
+  //     //     id: game.User.id,
+  //     //   },
+  //     //   { Credits: game.User.Credits + theResult.win }
+  //     // );
+  //     // ctx.body = 'ok';
+  //     // let entities = await strapi.services["poker-game"].find({
+  //     //   User: ctx.state.user.id,
+  //     //   Done: true,
+  //     // });
+  //     // return entities.map((entity) => {
+  //     //   return sanitizeEntity(entity, { model: strapi.models["poker-game"] });
+  //     // });
+  //     return { message: "HELLO FROM THE CUSTOM ROUTE " };
+  //   } catch (err) {
+  //     ctx.body = err;
+  //   }
+  // },
   myGames: async (ctx, next) => {
     console.log("myGames", ctx.state.user.id);
     try {
