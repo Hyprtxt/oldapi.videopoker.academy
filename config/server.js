@@ -6,5 +6,6 @@ module.exports = ({ env }) => ({
       secret: env("ADMIN_JWT_SECRET", "614257ce1696c813a5cdb591446b6d92"),
     },
   },
-  url: env("STRAPI_URL", "https://api.videopoker.academy"),
+  url: env("STRAPI_URL", "http://localhost:1337"),
+  // url: env("STRAPI_URL", "https://api.videopoker.academy"),
 });
