@@ -174,7 +174,8 @@ module.exports = {
   draw: async (ctx) => {
     const HAND_COUNT = 5;
     const { id } = ctx.params;
-    let game = await strapi.services["poker-game"].findOne({ id });
+    let game = await strapi.services["poker-game"].findOne({ Hash: id });
+    console.log( 'isGAME', game, id, ctx.request.body )
     if (game.Done) {
       throw strapi.errors.badRequest(`Cheater!`);
     }
@@ -210,7 +211,7 @@ module.exports = {
     }
     let entity;
     entity = await strapi.services["poker-game"].update(
-      { id },
+      { Hash: id },
       {
         Draw: drawCards,
         FinalCards: finalCards,
