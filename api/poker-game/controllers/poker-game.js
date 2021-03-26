@@ -19,6 +19,8 @@ module.exports = {
       .get();
     const providersList = Object.keys(providers)
       .map((key) => (providers[key].enabled ? key : null))
+      // Email for testing only
+      .filter((key) => (key ==='email' ? false : true))
       .filter((x) => x);
     ctx.send(providersList);
   },
