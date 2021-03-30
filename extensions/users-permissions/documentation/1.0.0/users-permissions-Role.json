@@ -568,6 +568,9 @@
                 "Handle": {
                   "type": "string"
                 },
+                "joinTrainerLeaderboards": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },
