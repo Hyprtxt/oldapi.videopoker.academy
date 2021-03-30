@@ -24,6 +24,19 @@ module.exports = {
       .filter((x) => x);
     ctx.send(providersList);
   },
+  removeSelf: async (ctx) => {
+    const sanitizeUser = user =>
+    sanitizeEntity(user, {
+      model: strapi.query('user', 'users-permissions').model,
+    });
+    // console.log("removeSelf", ctx.state.user.id);
+    try {
+      const entity = await strapi.plugins["users-permissions"].services.user.remove({ id: ctx.state.user.id });
+      return sanitizeUser(entity)
+    } catch (err) {
+      ctx.body = err;
+    }
+  },
   // publicGetProviders: async (ctx, next) => {
   //   console.log(
   //     "publicGetProviders",

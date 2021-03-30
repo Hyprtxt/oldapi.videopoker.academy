@@ -103,6 +103,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/remove-my-account",
+      "handler": "poker-game.removeSelf",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
