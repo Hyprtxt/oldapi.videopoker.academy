@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/30/2021 10:51:16 AM"
+    "x-generation-date": "03/30/2021 5:37:38 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -96,9 +96,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": [
           {
             "name": "_limit",
@@ -290,9 +288,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -347,9 +343,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": [
           {
             "name": "id",
@@ -410,9 +404,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": [
           {
             "name": "id",
@@ -478,9 +470,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": [
           {
             "name": "mode",
@@ -546,9 +536,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -629,9 +617,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -686,9 +672,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -743,9 +727,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -800,9 +782,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -857,9 +837,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -914,9 +892,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -971,9 +947,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -1028,9 +1002,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Poker-game"
-        ],
+        "tags": ["Poker-game"],
         "parameters": []
       }
     },
@@ -1085,9 +1057,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1156,9 +1126,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1227,9 +1195,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Email - Email"
-        ],
+        "tags": ["Email - Email"],
         "parameters": []
       }
     },
@@ -1284,9 +1250,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1355,9 +1319,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "parameters": []
       }
     },
@@ -1412,9 +1374,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "parameters": []
       }
     },
@@ -1469,9 +1429,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "parameters": [
           {
             "name": "id",
@@ -1535,9 +1493,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "parameters": [
           {
             "name": "id",
@@ -1603,9 +1559,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Upload - File"
-        ],
+        "tags": ["Upload - File"],
         "parameters": [
           {
             "name": "id",
@@ -1667,9 +1621,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "id",
@@ -1734,9 +1686,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "_limit",
@@ -1922,9 +1872,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1985,9 +1933,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "role",
@@ -2062,9 +2008,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - Role"
-        ],
+        "tags": ["UsersPermissions - Role"],
         "parameters": [
           {
             "name": "role",
@@ -2129,9 +2073,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -2333,9 +2275,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -2390,9 +2330,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2457,9 +2395,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2524,9 +2460,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "provider",
@@ -2592,9 +2526,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2663,9 +2595,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2734,9 +2664,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -2791,9 +2719,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2861,9 +2787,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "_limit",
@@ -3051,9 +2975,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": []
       }
     },
@@ -3104,9 +3026,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -3166,9 +3086,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -3243,9 +3161,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "UsersPermissions - User"
-        ],
+        "tags": ["UsersPermissions - User"],
         "parameters": [
           {
             "name": "id",
@@ -3264,22 +3180,13 @@
   "components": {
     "schemas": {
       "Poker-game": {
-        "required": [
-          "id",
-          "Done",
-          "Mode"
-        ],
+        "required": ["id", "Done", "Mode"],
         "properties": {
           "id": {
             "type": "string"
           },
           "User": {
-            "required": [
-              "id",
-              "username",
-              "email",
-              "Credits"
-            ],
+            "required": ["id", "username", "email", "Credits"],
             "properties": {
               "id": {
                 "type": "string"
@@ -3356,19 +3263,12 @@
           "Mode": {
             "type": "string",
             "default": "classic",
-            "enum": [
-              "classic",
-              "casual",
-              "trainer"
-            ]
+            "enum": ["classic", "casual", "trainer"]
           }
         }
       },
       "NewPoker-game": {
-        "required": [
-          "Done",
-          "Mode"
-        ],
+        "required": ["Done", "Mode"],
         "properties": {
           "User": {
             "type": "string"
@@ -3404,11 +3304,7 @@
           "Mode": {
             "type": "string",
             "default": "classic",
-            "enum": [
-              "classic",
-              "casual",
-              "trainer"
-            ]
+            "enum": ["classic", "casual", "trainer"]
           },
           "created_by": {
             "type": "string"
@@ -3419,10 +3315,7 @@
         }
       },
       "UsersPermissionsRole": {
-        "required": [
-          "id",
-          "name"
-        ],
+        "required": ["id", "name"],
         "properties": {
           "id": {
             "type": "string"
@@ -3440,13 +3333,7 @@
           "permissions": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "type",
-                "controller",
-                "action",
-                "enabled"
-              ],
+              "required": ["id", "type", "controller", "action", "enabled"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -3481,12 +3368,7 @@
           "users": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "username",
-                "email",
-                "Credits"
-              ],
+              "required": ["id", "username", "email", "Credits"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -3539,9 +3421,7 @@
         }
       },
       "NewUsersPermissionsRole": {
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "type": "string",
@@ -3574,12 +3454,7 @@
         }
       },
       "UsersPermissionsUser": {
-        "required": [
-          "id",
-          "username",
-          "email",
-          "Credits"
-        ],
+        "required": ["id", "username", "email", "Credits"],
         "properties": {
           "id": {
             "type": "string"
@@ -3604,10 +3479,7 @@
             "default": false
           },
           "role": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -3655,11 +3527,7 @@
         }
       },
       "NewUsersPermissionsUser": {
-        "required": [
-          "username",
-          "email",
-          "Credits"
-        ],
+        "required": ["username", "email", "Credits"],
         "properties": {
           "username": {
             "type": "string",
@@ -3714,10 +3582,7 @@
         }
       },
       "Error": {
-        "required": [
-          "code",
-          "message"
-        ],
+        "required": ["code", "message"],
         "properties": {
           "code": {
             "type": "integer",
