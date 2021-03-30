@@ -68,6 +68,10 @@
     "Handle": {
       "type": "string",
       "unique": true
+    },
+    "joinTrainerLeaderboards": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
