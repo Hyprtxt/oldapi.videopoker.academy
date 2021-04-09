@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/05/2021 10:19:12 AM"
+    "x-generation-date": "04/05/2021 1:30:39 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -416,6 +416,74 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/game/{uuid}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Poker-game"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
             "in": "path",
             "description": "",
             "deprecated": false,
@@ -3871,9 +3939,6 @@
           "Result": {
             "type": "object"
           },
-          "Hash": {
-            "type": "uid"
-          },
           "Strategy": {
             "type": "object"
           },
@@ -3885,6 +3950,9 @@
               "casual",
               "trainer"
             ]
+          },
+          "uuid": {
+            "type": "uid"
           }
         }
       },
@@ -3919,9 +3987,6 @@
           "Result": {
             "type": "object"
           },
-          "Hash": {
-            "type": "uid"
-          },
           "Strategy": {
             "type": "object"
           },
@@ -3933,6 +3998,9 @@
               "casual",
               "trainer"
             ]
+          },
+          "uuid": {
+            "type": "uid"
           },
           "created_by": {
             "type": "string"
@@ -4042,9 +4110,6 @@
                 "Result": {
                   "type": "object"
                 },
-                "Hash": {
-                  "type": "uid"
-                },
                 "Strategy": {
                   "type": "object"
                 },
@@ -4055,6 +4120,9 @@
                     "casual",
                     "trainer"
                   ]
+                },
+                "uuid": {
+                  "type": "uid"
                 },
                 "created_by": {
                   "type": "string"

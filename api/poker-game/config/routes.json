@@ -26,6 +26,14 @@
     },
     {
       "method": "GET",
+      "path": "/game/:uuid",
+      "handler": "poker-game.findOneByUUID",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/play/:mode",
       "handler": "poker-game.play",
       "config": {
