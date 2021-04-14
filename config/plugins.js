@@ -5,10 +5,9 @@ module.exports = ({ env }) => ({
       apiKey: env("SENDGRID_API_KEY"),
     },
     settings: {
-      defaultFrom: "juliasedefdjian@strapi.io",
-      defaultReplyTo: "juliasedefdjian@strapi.io",
-      testAddress: "juliasedefdjian@strapi.io",
+      defaultFrom: "no-reply@videopoker.academy",
+      defaultReplyTo: "nobody@videopoker.academy",
+      testAddress: "tdy721@gmail.com",
     },
   },
 })
-
