@@ -12,7 +12,6 @@
   "devDependencies": {},
   "dependencies": {
     "knex": "<0.20.0",
-    "object-hash": "^2.0.3",
     "sqlite3": "latest",
     "strapi": "3.5.4",
     "strapi-admin": "3.5.4",
@@ -24,8 +23,13 @@
     "strapi-plugin-graphql": "3.5.4",
     "strapi-plugin-upload": "3.5.4",
     "strapi-plugin-users-permissions": "3.5.4",
+<<<<<<< HEAD
     "strapi-provider-email-sendgrid": "^3.5.4",
     "strapi-utils": "3.5.4"
+=======
+    "strapi-utils": "3.5.4",
+    "uuid": "^8.3.2"
+>>>>>>> 6154cc51e9a78ee52b7aa21f2698b977bbf315f8
   },
   "author": {
     "name": "A Strapi developer"
