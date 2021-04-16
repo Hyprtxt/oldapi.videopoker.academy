@@ -4,12 +4,13 @@ const uuid = require("uuid")
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
  * to customize this model
  */
-const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000
 
 module.exports = {
   lifecycles: {
     beforeCreate: data => {
-      data.expiration = new Date().getTime() + SEVEN_DAYS_MS
+      let date = new Date()
+      date.setDate(date.getDate() + 30)
+      date.expires_at = date
       data.uuid = uuid.v4()
     },
   },
