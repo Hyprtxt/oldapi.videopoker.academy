@@ -10,7 +10,7 @@ module.exports = {
     beforeCreate: data => {
       let date = new Date()
       date.setDate(date.getDate() + 30)
-      date.expires_at = date
+      data.expires_at = date
       data.uuid = uuid.v4()
     },
   },
