@@ -36,8 +36,8 @@
       "plugin": "upload",
       "required": false
     },
-    "expiration": {
-      "type": "biginteger"
+    "expires_at": {
+      "type": "datetime"
     }
   }
 }
