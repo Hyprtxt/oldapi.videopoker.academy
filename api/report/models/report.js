@@ -9,7 +9,7 @@ const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000
 module.exports = {
   lifecycles: {
     beforeCreate: data => {
-      data.expires = new Date().getTime() + SEVEN_DAYS_MS
+      data.expiration = new Date().getTime() + SEVEN_DAYS_MS
       data.uuid = uuid.v4()
     },
   },
