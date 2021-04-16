@@ -18,8 +18,8 @@
     },
     {
       "method": "GET",
-      "path": "/reports/:id",
-      "handler": "report.findOne",
+      "path": "/reports/:uuid",
+      "handler": "report.findOneByUUID",
       "config": {
         "policies": []
       }

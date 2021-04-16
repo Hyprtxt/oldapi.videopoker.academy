@@ -9,11 +9,22 @@ const { parseMultipartData, sanitizeEntity } = require("strapi-utils")
 
 module.exports = {
   /**
+   * Retrieve a record.
+   *
+   * @return {Object}
+   */
+  async findOneByUUID(ctx) {
+    const { uuid } = ctx.params
+
+    const entity = await strapi.services.report.findOne({ uuid })
+    return sanitizeEntity(entity, { model: strapi.models.report })
+  },
+
+  /**
    * Update a record.
    *
    * @return {Object}
    */
-
   async updateByUUID(ctx) {
     const { uuid } = ctx.params
 
