@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "name": "Report",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "uid",
+      "required": true
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "report": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "expiration": {
+      "type": "biginteger"
+    }
+  }
+}
