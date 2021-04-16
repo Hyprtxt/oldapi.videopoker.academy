@@ -34,8 +34,8 @@
     },
     {
       "method": "PUT",
-      "path": "/reports/:id",
-      "handler": "report.update",
+      "path": "/reports/:uuid",
+      "handler": "report.updateByUUID",
       "config": {
         "policies": []
       }
