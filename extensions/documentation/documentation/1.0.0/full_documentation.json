@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/16/2021 5:53:56 PM"
+    "x-generation-date": "04/17/2021 12:05:51 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4687,6 +4687,61 @@
           "expires_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email",
+              "Credits"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "Credits": {
+                "type": "integer"
+              },
+              "Handle": {
+                "type": "string"
+              },
+              "joinTrainerLeaderboards": {
+                "type": "boolean"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -4704,6 +4759,9 @@
           "expires_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "user": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

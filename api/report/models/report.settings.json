@@ -38,6 +38,10 @@
     },
     "expires_at": {
       "type": "datetime"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
